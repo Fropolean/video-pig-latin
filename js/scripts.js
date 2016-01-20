@@ -7,17 +7,26 @@
 
 var pigLatin = function(userInput) {
   if (userInput[0] === "a" || userInput[0] === "e" || userInput[0] === "i" || userInput[0] === "o" || userInput[0] === "u") {
-    return userInput + "way";
-  } else {
+    return userInput + "way"; // if first letter is vowel
+
+  } else if (userInput[2] !== "a" && userInput[2] !== "e" && userInput[2] !== "i" && userInput[2] !== "o" && userInput[2] !== "u" && userInput[2] !== "y") {
+    return userInput.slice(3) + userInput[0] + userInput[1] + userInput[2] + "ay"; //if first three letters are consonants
+
+  } else if (userInput[1] !== "a" && userInput[1] !== "e" && userInput[1] !== "i" && userInput[1] !== "o" && userInput[1] !== "u" && userInput[1] !== "y") {
+    return userInput.slice(2) + userInput[0] + userInput[1] + "ay"; //if first two letters are consonants
+
+  } else { //if word begins with consonant
     return userInput.slice(1) + userInput[0] + "ay";
   }
 }
+
+
 
 $(document).ready(function() {
   $("form#userForm").submit(function(event) {
 
     var userInput = $("textarea#engInput").val();
-
+    var userInput = userInput.toLowerCase();
     var result = pigLatin(userInput);
 
     // console.log(userInput);
