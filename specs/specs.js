@@ -16,13 +16,11 @@ describe ("pigLatin", function() {
   });
 });
 
-
-describe("hasConsonantAt", function() {
-  it("returns true if a word has a consonant in the specified spot", function() {
-    expect(hasConsonantAt("peanut", 1)).to.equal(true);
+describe("indexofFirstVowel", function() {
+  it("returns 0 for a word that starts with a vowel", function() {
+    expect(indexofFirstVowel("apple")).to.equal(0);
   });
-
-  it("returns false if a word does not have a consonant in the specified spot", function() {
-    expect(hasConsonantAt("peanut", 1)).to.equal(false);
-  });
-});
+  it("returns 1 for a word that starts with a single consonant", function() {
+    expect(indexofFirstVowel("cat")).to.equal(1);
+  })
+})

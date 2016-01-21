@@ -1,21 +1,17 @@
 var pigLatin = function(englishWord) {
-  if (hasVowelAt(englishWord, 0)) {
-    var translatedWord = englishWord;
-  } else if (!hasVowelAt(englishWord, 1)) {
-    var translatedWord = englishWord.slice(1) + englishWord.slice(0, 1);
-  } else if (!hasVowelAt(englishWord, 2)) {
-    var translatedWord = englishWord.slice(2) + englishWord.slice(0, 2);
-  }
-  return translatedWord + "ay";
+  var splitAt = indexofFirstVowel(englishWord);
+  return englishWord.slice(splitAt) + englishWord.slice(0, splitAt) + "ay";
 };
 
-var hasConsonantAt = function(word, position) {
+var indexofFirstVowel = function(word) { //tells us where the index of the first vowel is
   var vowels = ["a", "e", "i", "o", "u"];
-  for (var i = 0; i < vowels.length; i++) {
-    if (word[position] === vowels[i]) {
-      return true;
-      break;
+  var letters = word.split("");
+
+  for (var i = 0; i < letters.length; i++) {
+    for (var j = 0; j < vowels.length; j++) {
+      if (letters[i] === vowels[j]) {
+        return i;
+      }
     }
   }
-  return false;
-}
+};
