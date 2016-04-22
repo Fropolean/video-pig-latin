@@ -11,7 +11,7 @@ _String-to-pig-latin translator._
 
 ## Setup/Installation Requirements
 
-1. Fork and clone this repository from [gitHub](https://github.com/MBAllely/cryptoSquare)
+1. Fork and clone this repository from [gitHub](https://github.com/MBAllely/video-pig-latin)
 2. Open the index.html file in your browser
 
 ## Known Bugs
